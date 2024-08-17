@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <title>BANSIWALA</title>
+</head>
+<body>
+    <div class="main">
+      <div class="title">
+         <h1>BANSIWALA</h1>
+         <h2>CLIENT RETURN STATUS MAINTAINER</h2>
+      </div>
+      <div class="container">
+         <button>
+            <a href="/gstr-1">
+              <img src="{{ url_for('static',filename='images/r1.png') }}" alt="">
+            </a>
+         </button>
+         <!-- <button>
+            <a href="/gstr-3b">
+            <img src="{{ url_for('static',filename='images/3b.png') }}" alt="">
+            </a>
+         </button> -->
+         <button>
+            <a href="/masters">
+            <img src="{{ url_for('static',filename='images/masters.png') }}" alt="">
+           </a>
+         </button>
+         <!-- <button>
+            <img src="{{ url_for('static',filename='images/settings.png') }}" alt="">
+         </button> -->
+      </div>
+    </div>
+<script>
+   document.addEventListener('keydown', function(event) {
+      if (event.ctrlKey && event.code === 'KeyM') {
+        window.location.href = '/masters';
+      }
+      else if (event.ctrlKey && event.code === 'KeyR') {
+        window.location.href = '/gstr-1';
+      }
+    });
+</script>
+</body>
+</html>

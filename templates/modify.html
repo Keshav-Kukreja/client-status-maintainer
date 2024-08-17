@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Modify{% endblock %}
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<!-- <script src="{{ url_for('static',filename='js/gstr_1.js') }}"></script> -->
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/modify.css') }}">
+{% endblock %}
+{% block body %}
+<div class="main">
+  <div style="display: flex;">
+    <select id="search-by">
+      <option value="code_no">Code No.</option>
+      <option value="name">Name</option>
+    </select>
+    <select id="table">
+      <option value="Masters">Active</option>
+      <option value="Cancelled">Deactive</option>
+    </select>
+  </div>
+  <input type="text" name="search" id="search">
+  <form action="/modify" method="POST">
+    <div class="container" id="root"></div>
+  </form>
+</div>
+<script>
+  /* Add event listners here*/
+  window.addEventListener("load", post_data);
+  $('#search').keyup(post_data);
+  $('#table').change(post_data);
+  /*Define functions here*/  
+  function post_data() {
+    $.ajax({
+        type: "POST",
+        url: "/search-masters",
+        data:{
+            searchTerm: $('#search').val(),
+            searchBy: $('#search-by').val(),
+            table: $('#table').val(),
+        },
+        success: get_result}
+        )}
+
+  function get_result(result) {
+    console.log(result)
+     var resultsHtml = ''
+     result.forEach(result=>{
+       let btn = "Deactivate"
+       let color = "red"
+       if ($('#table').val()=="Cancelled") { 
+         btn="Activate"
+         color="lightgreen" 
+      }
+       resultsHtml += `<div class="row">
+                       <button class="info" 
+                       value="show ${result['code_no']}" 
+                       name="action">
+                         <h5>${result['code_no']}</h5>
+                         <h5>${result['name']}</h5>
+                         <h5>${result['gst_no']}</h5>
+                     </button>
+                     <button class="delete_btn" style="background-color:${color};"
+                     value="delete ${result['code_no']}" name="action">
+                     ${btn} 
+                    </button></div>`
+       document.getElementById("root").innerHTML=resultsHtml
+     })
+  }
+</script>
+</body>
+{% endblock %}

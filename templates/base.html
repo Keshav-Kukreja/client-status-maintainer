@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block script %}{% endblock %}
+    {% block style %}{% endblock %}
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+<script>
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.code === 'KeyH') {
+          window.location.href = '/';
+        }
+        else if (event.ctrlKey && event.code === 'KeyM') {
+          window.location.href = '/masters';
+        }
+        else if (event.ctrlKey && event.code === 'KeyR') {
+          window.location.href = '/gstr-1';
+        }
+      });
+    
+</script>
+</body>
+</html>

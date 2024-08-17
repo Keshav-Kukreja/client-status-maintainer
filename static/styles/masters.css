@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #B3E5BE;
+    box-sizing: border-box;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    gap: 100px;
+}
+
+.container{
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    grid-template-columns: 1fr;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.form div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form div * {
+    flex-basis: 50%;
+}
+
+.form div input,
+.form div select{
+    width: 200px;
+    height: 20px;
+}
+
+.save-btn{
+    border: none ;
+    background-color: lightblue;
+    width: 50px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}

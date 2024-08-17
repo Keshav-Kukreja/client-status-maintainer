@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Export{% endblock %}
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="{{ url_for('static',filename='js/gstr_1.js') }}"></script> -->
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/fy.css') }}">
+{% endblock %}
+{% block body %}
+<div class="main">
+    <form action="/download" method="post">
+  <div class="container">
+    <label for="f_y">Financial Year</label>
+      <select name="f_y" id="fy">
+        <option value="">2023-24</option>
+        <option value="">2024-25</option>
+      </select>
+    <label for="return">Return</label>
+      <select name="return" id="return">
+        <option value="r1">GSTR-1</option>
+        <option value="r3b">GSTR-3B</option>
+        <option value="r9">GSTR-9</option>
+      </select>
+    <label for="filter">Filter</label>
+    <div style="display: flex;">
+      <select name="filter" id="filter">
+        <option value="*">All</option>
+        <option value="P">Pending</option>
+        <option value="F">Filed</option>
+        <option value="Q">Quarterly</option>
+        <option value="M">Monthly</option>
+        <option value="C">Composition</option>
+        <option value="R">Regular</option>
+      </select>
+      <select name="month" id="month">
+        <option value="Apr">April</option>
+        <option value="May">May</option>
+        <option value="Jun">June</option>
+        <option value="Jul">July</option>
+        <option value="Aug">August</option>
+        <option value="Sep">Sepetember</option>
+        <option value="Oct">October</option>
+        <option value="Nov">November</option>
+        <option value="Dec">December</option>
+        <option value="Jan">January</option>
+        <option value="Feb">Febuary</option>
+        <option value="Mar">March</option>
+      </select>
+    </div>
+      <button type="submit" id="btn">Download</button>
+  </div>
+</form>
+</div>
+{% endblock %}

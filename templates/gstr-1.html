@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}GSTR-1{% endblock %}
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<!-- <script src="{{ url_for('static',filename='js/gstr_1.js') }}"></script> -->
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/gstr1.css') }}">
+{% endblock %}
+{% block body %}
+<div class="main">
+    <!-- title & search section -->
+        <div class="search-head">
+            <label for="fy">F.Y</label>
+            <select name="fy" id="fy">
+                <option value="fy">2022-23</option>
+                <option value="fy">new F.Y.</option>
+            </select>
+            <select name="return" id="return">
+                <option value="r1">GSTR-1</option>
+                <option value="r3b">GSTR-3B</option>
+                <option value="r9">GSTR-9</option>
+            </select>
+            <label for="filter">Filter</label>
+            <select name="filter" id="filter">
+                <option value="*">All</option>
+                <option value="Q">Quarterly</option>
+                <option value="M">Monthly</option>
+                <option value="C">Composition</option>
+                <option value="R">Regular</option>
+                <option value="P">Pending</option>
+                <option value="F">Filed</option>
+            </select>
+            <label for="by_month">Month</label>
+            <select name="month-by" id="month-by">
+                <option value="Apr">Apr</option>
+                <option value="May">May</option>
+                <option value="Jun">Jun</option>
+                <option value="Jul">Jul</option>
+                <option value="Aug">Aug</option>
+                <option value="Sep">Sep</option>
+                <option value="Oct">Oct</option>
+                <option value="Nov">Nov</option>
+                <option value="Dec">Dec</option>
+                <option value="Jan">Jan</option>
+                <option value="Feb">Feb</option>
+                <option value="Mar">Mar</option>
+            </select>
+            <label for="search-by">Search by</label>
+            <select name="search-by" id="search-by">
+                <option value="code_no">Code</option>
+                <option value="name">Name</option>
+                <option value="gst_no">GST no.</option>
+            </select>
+            <input type="text" id="search">
+            <button id="btn"><a href="/export">Export</a></button>
+        </div>
+
+        <!-- title & search section -->
+
+    <!-- list head -->
+    <div class="content">
+        <!-- list items -->
+        <form action="/update" method="POST">
+            <table id="table">
+            </table>
+            <input type="submit" value="Update" id="update_btn">
+        </form>
+
+    </div>
+</div>
+<script src="{{ url_for('static',filename='js/gstr_1.js') }}"></script>
+</body>
+{% endblock %}

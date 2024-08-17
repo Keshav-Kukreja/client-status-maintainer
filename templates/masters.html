@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Add Masters{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/masters.css') }}">
+{% endblock %}
+{% block body %}
+<div class="main-container">
+    <div class="head">
+        <h1>Masters Details</h1>
+        <button><a href="/modify">Modify</a></button>
+    </div>
+    <form  action="/masters" method="post">
+    <div class="container">
+            <div class="form">
+            <div>
+                <label for="f_y">Financial Year :</label>
+                <select type="text" name="f_y" disabled>
+                     <option>2021-22</option>
+                     <option>2022-23</option>
+                </select>
+            </div>
+            <div>
+                <label for="File No.">File No. :</label>
+                <input type="text" name="File No.">
+            </div>
+            <div>
+                <label for="Name">Name :</label>
+                <input type="text" name="Name">
+            </div>
+            <div>
+                <label for="Gst_No.">Gst No. :</label>
+                <input type="text" name="Gst_No.">
+            </div>
+            <div>
+                <label for="Working_hand">Working Hand :</label>
+                <input type="text" name="Working_hand">
+            </div>
+             <div>
+                <label for="d_type">Dealer Type :</label>
+                <select type="text" name="d_type">
+                     <option value="R">Regular</option>
+                     <option value="C">Composition</option>
+                </select>
+            </div>
+            <div>
+                <label for="r_type">Return Type :</label>
+                <select type="text" name="r_type">
+                     <option value="Q">Quarterly</option>
+                     <option value="M">Monthly</option>
+                </select>
+            </div>
+        </div>
+        <button class="save-btn" type="submit">Save</button>
+    </div>
+</form>
+</div>
+{% endblock %}

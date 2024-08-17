@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}GSTR-1{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/detail.css') }}">
+{% endblock %}
+{% block body %}
+{%for row in rows%}
+<div class="main-container">
+<h2>{{row[2]}}}</h2>
+<form action="/update" method="POST">
+    <input type="submit" name="submit_button" value="Detailes">
+    <input type="submit" name="submit_button" value="GSTR-1">
+    <input type="submit" name="submit_button" value="GSTR-3B">
+</form>
+<div class="info">
+<table>
+    <caption>QUARTER 1</caption>
+    <tr>
+      <th>MONTHS</th>
+      <th>STATUS</th>
+    </tr>
+    <tr>
+      <td>April</td>
+      <td>{{row[6]}}</td>
+    </tr>
+    <tr>
+      <td>May</td>
+      <td>{{row[7]}}</td>
+    </tr>
+    <tr>
+      <td>June</td>
+      <td>{{row[8]}}</td>
+    </tr>
+
+  </table>
+<table>
+    <caption>QUARTER 2</caption>
+    <tr>
+      <th>MONTHS</th>
+      <th>STATUS</th>
+    </tr>
+    <tr>
+      <td>July</td>
+      <td>{{row[9]}}</td>
+    </tr>
+    <tr>
+      <td>August</td>
+      <td>{{row[10]}}</td>
+    </tr>
+    <tr>
+      <td>September</td>
+      <td>{{row[11]}}</td>
+    </tr>
+
+  </table>
+<table>
+    <caption>QUARTER 3</caption>
+    <tr>
+      <th>MONTHS</th>
+      <th>STATUS</th>
+    </tr>
+    <tr>
+      <td>October</td>
+      <td>{{row[12]}}</td>
+    </tr>
+    <tr>
+      <td>November</td>
+      <td>{{row[13]}}</td>
+    </tr>
+    <tr>
+      <td>December</td>
+      <td>{{row[14]}}</td>
+    </tr>
+
+  </table>
+<table>
+    <caption>QUARTER 4</caption>
+    <tr>
+      <th>MONTHS</th>
+      <th>STATUS</th>
+    </tr>
+    <tr>
+      <td>January</td>
+      <td>{{row[15]}}</td>
+    </tr>
+    <tr>
+      <td>February</td>
+      <td>{{row[16]}}</td>
+    </tr>
+    <tr>
+      <td>March</td>
+      <td>{{row[17]}}</td>
+    </tr>
+
+  </table>
+</div>
+<h1>{{ row[5] }}</h1>
+</div>
+
+<script>
+    let table = document.getElementsByTagName("td")
+    for (let i=0;i<table.length;i++){
+        if (table[i].innerHTML=="Filed"){
+            table[i].className="td"
+        }
+    }
+</script>
+{%endfor%}
+{% endblock %}

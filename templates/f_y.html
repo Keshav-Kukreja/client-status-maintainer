@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}New F.Y.{% endblock %}
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<!-- <script src="{{ url_for('static',filename='js/gstr_1.js') }}"></script> -->
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/fy.css') }}">
+{% endblock %}
+{% block body %}
+<div class="main">
+  <div class="container">
+    <label for="f_y">Financial Year</label>
+      <select name="f_y" id="fy">
+        <option value="{{datetime.datetime.today().year+1}}">
+          {{datetime.datetime.today().year+1}}
+          -
+          {{datetime.datetime.today().year+2}}
+        </option>
+        <option value="{{datetime.datetime.today().year+2}}">
+          {{datetime.datetime.today().year+2}}
+          -
+          {{datetime.datetime.today().year+3}}
+        </option>
+      </select>
+      <button type="submit" id="btn">Start</button>
+  </div>
+</div>
+{% endblock %}
